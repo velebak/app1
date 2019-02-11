@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <h1>Image Search</h1>
       <div>
         <input
           type="text"
