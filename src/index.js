@@ -10,10 +10,19 @@ function App() {
   const [search, setSearch] = useState("");
 
   const fetchData = async () => {
-    const result = await axios(
-      "http://api.allthingsflexo.com/items?partno=${query}"
-    );
-    setData(result);
+    console.log("getting data");
+    const url = "http://api.allthingsflexo.com/items";
+    console.log("URL: " + url);
+    fetch(url)
+      .then(response => response.json())
+      .then(data => console.log("data:" + data));
+
+    // const result = await axios(
+    //   "http://api.allthingsflexo.com/items?partno=${query}"
+    // );
+    // console.log("data got");
+    // console.log(result);
+    // setData(result);
   };
 
   useEffect(
