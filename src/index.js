@@ -11,25 +11,23 @@ function App() {
 
   const fetchData = async () => {
     console.log("getting data");
-    const url = "http://api.allthingsflexo.com/items";
+    const url = `http://api.allthingsflexo.com/items?partno=${query}`;
     console.log("URL: " + url);
-    fetch(url)
-      .then(response => response.json())
-      .then(data => console.log("data:" + data));
+    // fetch(url)
+    //   .then(response => response.json())
+    //   .then(data => console.log("data:" + data));
 
-    // const result = await axios(
-    //   "http://api.allthingsflexo.com/items?partno=${query}"
-    // );
-    // console.log("data got");
-    // console.log(result);
-    // setData(result);
+    const result = await axios(url);
+    console.log("data got");
+    console.log(result);
+    setData(result);
   };
 
   useEffect(
     () => {
       fetchData();
     },
-    [query]
+    [search]
   );
 
   return (
