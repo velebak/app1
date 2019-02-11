@@ -6,7 +6,7 @@ import "./styles.css";
 
 function App() {
   const [data, setData] = useState([]);
-  const [query, setQuery] = useState("3");
+  const [query, setQuery] = useState("");
   const [search, setSearch] = useState("");
 
   const fetchData = async () => {
