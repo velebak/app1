@@ -5,7 +5,7 @@ import axios from "axios";
 import "./styles.css";
 
 function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({data:[]});
   const [query, setQuery] = useState("");
   const [search, setSearch] = useState("");
 
@@ -13,13 +13,7 @@ function App() {
     console.log("getting data");
     const url = `http://api.allthingsflexo.com/items?partno=${query}`;
     console.log("URL: " + url);
-    // fetch(url)
-    //   .then(response => response.json())
-    //   .then(data => console.log("data:" + data));
-
     const result = await axios(url);
-    console.log("data got");
-    console.log(result);
     setData(result);
   };
 
@@ -44,7 +38,7 @@ function App() {
         </button>
       </div>
       <ul>
-        {data.map(i => (
+        {data.data.map(i => (
           <li key={i.id}>
             <a href={i.imageUrl}>{i.description}</a>
           </li>
